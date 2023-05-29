@@ -43,7 +43,7 @@ import com.restaurante.spring.login.security.services.UserDetailsImpl;
  * 
 */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "https://restaurant-realeza.firebaseapp.com", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
