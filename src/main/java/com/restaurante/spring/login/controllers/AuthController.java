@@ -135,7 +135,12 @@ public class AuthController {
 
     user.setRoles(roles);
     userRepository.save(user);
-
+  HttpHeaders headers = new HttpHeaders();
+    headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+    headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT, DELETE, OPTIONS");
+    headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    headers.add(HttpHeaders.ACCESS_CONTROL_MAX_AGE, "3600");
+    headers.add(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization"); 
     return ResponseEntity.ok(new MessageResponse("Usuario registrado com sucesso!"));
   }
 
