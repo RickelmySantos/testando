@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import com.restaurante.spring.login.security.jwt.AuthEntryPointJwt;
 import com.restaurante.spring.login.security.jwt.AuthTokenFilter;
 import com.restaurante.spring.login.security.services.UserDetailsServiceImpl;
@@ -79,4 +79,10 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 
 		return http.build();
 	}
+	 public void addCorsMappings(CorsRegistry registry) {
+	        registry.addMapping("/**")
+	                .allowedOrigins("https://restaurant-realeza.firebaseapp.com")
+	                .allowedMethods("GET", "POST", "PUT", "DELETE")
+	                .allowedHeaders("*");
+	    }
 }
